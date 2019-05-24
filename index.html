@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="Todo">
+    <div ng-controller="todoController">
+        <form name="form" ng-submit="addtodo()">
+            <input type="text" name="newtodo" ng-model="newtodo">
+            <button ng-disable="form.$invalid">Go</button>
+        </form>
+        <button>clear completed</button>
+        <ul ng-repeat="todo in todos">
+            <input type="checkbox"  ng-model="todo.done"/>
+            <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+        </ul>
+    </div>  
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module("Todo", [])
+        app.controller("todoController", ['$scope', function ($scope) {
+            $scope.todos = [
+                { 'title': 'built a todo app', 'done': false }
+            ];
+            $scope.addtodo = function () {
+
+            }
+            $scope.ClearCompleted = function () {
+
+            }
+        }])
+    </script>
+</body>
+
+</html>
